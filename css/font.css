@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'MaplestoryOTFBold';
+  src: url('../font/MaplestoryBold.woff2') format('woff2'), url('../font/MaplestoryBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: local('Pretendard Variable'), url('../font/PretendardVariable.woff2') format('woff2-variations'),
+  url('../font/PretendardVariable.woff') format('woff-variations'),;
+}
