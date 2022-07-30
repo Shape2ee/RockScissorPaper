@@ -234,6 +234,7 @@ button {
   width: 50px;
   height: 50px;
   background-color: #000;
+  border-radius: 0 20px 0 0;
   cursor: pointer;
 }
 
@@ -385,14 +386,16 @@ button {
   }
 
   .modal__wrap {
-    padding: 4rem 2rem;
-    padding-right: 4rem;
+    padding: 3rem 2rem;
+    /* padding-right: 4rem; */
   }
 
   .modal__container { 
     padding: 2rem;
+    padding-right: 3rem;
     height: 30vh;
     overflow: auto;
+    font-size: 1.4rem;
   }
 
   .game {
@@ -429,6 +432,10 @@ button {
     width: 32.3333%;
     /* width: 23.077vw; */
     height: 23.077vw;
+  }
+
+  .madal_btn {
+    margin-top: 2rem;
   }
 
   .img_info {
