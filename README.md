@@ -2,7 +2,7 @@ ToyProject 01
 ==============
 ## 가위바위보 게임 ##
 
-<img src="https://shape2ee.github.io/RockScissorPaper/images/gameplay.gif">
+![picture alt](https://shape2ee.github.io/RockScissorPaper/images/gameplay.gif "가위바위보 게임")
 
 토이프로젝트로 JavaScript를 공부하는 차원에서 만든 가위바위보 게임입니다.
 
