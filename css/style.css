@@ -207,9 +207,7 @@ button {
 .modal__wrap {
   position: relative;
   padding: 4rem;
-  width: 80%;
-  /* min-width: 500px; */
-  max-width: 800px;
+  width: 800px;
   background-color: #f2f5f7;
   border-radius: 20px;
   font-size: 1.6rem;
@@ -387,7 +385,7 @@ button {
 
   .modal__wrap {
     padding: 3rem 2rem;
-    /* padding-right: 4rem; */
+    width: 90%;
   }
 
   .modal__container { 
