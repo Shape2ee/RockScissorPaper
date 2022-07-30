@@ -31,11 +31,9 @@ const yourPoint = document.querySelector(".game__point--your");
 const resetBtn = document.querySelector(".game__reset");
 let result = false;
 
-// console.log(randomNum);
 document.cookie = "test1=Hello";
 
 const gameStart = (e) => {
-  console.log(e.target)
   const target = e.target;
 
   resetImg();
@@ -153,8 +151,6 @@ const modalForm = document.forms.check;
 const chcekBox = document.querySelector("#checkbox");
 let checkBoolean = false;
 
-console.log(modalForm);
-
 const modalClose = () => {
   modal.classList.remove("show")
   // setCookie("close", true, 1);
@@ -177,7 +173,6 @@ function getCookie(name) {
 
 chcekBox.addEventListener("change", (e) => {
   checkBoolean = e.target.checked;
-  console.log(checkBoolean);
 })
 
 closeBtn.addEventListener("click", modalClose)
