@@ -29,10 +29,10 @@ const myPoint = document.querySelector(".game__point--my");
 const yourPoint = document.querySelector(".game__point--your");
 
 const resetBtn = document.querySelector(".game__reset");
-
+let result = false;
 
 // console.log(randomNum);
-
+document.cookie = "test1=Hello";
 
 const gameStart = (e) => {
   console.log(e.target)
@@ -74,6 +74,7 @@ function compareSelect () {
     selectIndex === 2 && randomIndex === 0) {
     yourPoint.textContent = Number(yourPoint.textContent) + 1;
   }
+
   gameOver()
 }
 
@@ -94,21 +95,14 @@ function resetImg() {
 
   yourImg.style.backgroundImage = "none"
   yourImgText.textContent = "";
+
+  if(result === false) {
+    scissors.addEventListener("click", gameStart);
+    rock.addEventListener("click", gameStart);
+    paper.addEventListener("click", gameStart);
+  }
 }
 
-
-scissors.addEventListener("click", gameStart);
-rock.addEventListener("click", gameStart);
-paper.addEventListener("click", gameStart);
-
-resetBtn.addEventListener("click", () => {
-  myPoint.textContent = 0;
-  yourPoint.textContent = 0;
-  
- resetImg();
-})
-
-let result = false;
 function gameOver() {
   if(myPoint.textContent == "10") {
     result = confirm("WIN! 대단해요👍 가위바위보의 달인이시군요😎");
@@ -136,16 +130,70 @@ function reGame() {
   }
 }
 
+scissors.addEventListener("click", gameStart);
+rock.addEventListener("click", gameStart);
+paper.addEventListener("click", gameStart);
+
+resetBtn.addEventListener("click", () => {
+  myPoint.textContent = 0;
+  yourPoint.textContent = 0;
+
+  resetImg();
+})
+
+
+
 /*-------------------------------------------------*/
 // 모달창
 
 const modal = document.querySelector(".modal");
 const startBtn = document.querySelector(".madal_btn");
 const closeBtn = document.querySelector(".close_btn");
+const modalForm = document.forms.check;
+const chcekBox = document.querySelector("#checkbox");
+let checkBoolean = false;
 
-const modalClose = (e) => {
+console.log(modalForm);
+
+const modalClose = () => {
   modal.classList.remove("show")
+  // setCookie("close", true, 1);
 }
 
-startBtn.addEventListener("click", modalClose)
+// 쿠키설정
+function setCookie(name, value, expires) {
+  let now = new Date(Date.now() + (expires*24*60*60*1000));
+  // now = now.getDate() + expires;
+  document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; path=/; expires=" + now.toUTCString();
+}
+
+// 쿠키 가져오기
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+chcekBox.addEventListener("change", (e) => {
+  checkBoolean = e.target.checked;
+  console.log(checkBoolean);
+})
+
 closeBtn.addEventListener("click", modalClose)
+startBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if(checkBoolean) {
+    modalClose();
+    setCookie("close", true, 1);
+  } else {
+    modalClose();
+  }
+})
+
+window.addEventListener("load", () => {
+  if(getCookie("close")) {
+    modal.classList.remove("show");
+  }
+})

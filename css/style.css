@@ -25,6 +25,10 @@ button {
   height: 1px;
 }
 
+.none {
+  display: inline-block;
+}
+
 .game {
   display: flex;
   flex-direction: column;
@@ -32,9 +36,8 @@ button {
   top: 50%;
   left: 50%;
   padding: 3rem 0;
-  width: 500px;
-  /* height: 70vh; */
-  min-height: 700px;
+  width: 80%;
+  max-width: 500px;
   background-color: #fff;
   border-radius: 20px;
   transform: translate(-50%, -50%);
@@ -183,11 +186,6 @@ button {
   background-image: url(../images/paper.svg);
 }
 
-.game_btn:hover {
-  background-color: #ffdc21;
-  background-position: 50% 40%;
-  box-shadow: 0 4px 9px 0 rgb(63 65 80 / 30%);
-}
 
 /* 모달창 */
 .modal {
@@ -209,8 +207,8 @@ button {
 .modal__wrap {
   position: relative;
   padding: 4rem;
-  width: 40%;
-  min-width: 500px;
+  width: 80%;
+  /* min-width: 500px; */
   max-width: 800px;
   background-color: #f2f5f7;
   border-radius: 20px;
@@ -223,7 +221,7 @@ button {
 }
 
 .modal_sub-tit {
-  padding: 1rem 0 2rem;
+  padding: 0.4rem 0 2rem;
   border-bottom: 1px solid #ccc;
   color: #555;
 }
@@ -270,22 +268,11 @@ button {
 .close_btn em::after {
   transform: rotate(-45deg);
 }
-.close_btn:hover {
-  background-color: #ffdc21;
-}
-
-.close_btn:hover em {
-  transform: translate(-50%, -50%) rotate(180deg);
-}
-
-.close_btn:hover em::before,
-.close_btn:hover em::after {
-  background-color: #000;
-}
 
 .modal__container {
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 3rem;
+  min-height: 150px;
   background-color: #fff;
   line-height: 2.6rem;
 }
@@ -299,13 +286,37 @@ button {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
+  top: 1rem;
   left: 0;
-  transform: translateY(-50%);
   width: 5px;
   height: 5px;
   background-color: #ccc;
   border-radius: 50%;
+}
+
+.modal__check-btn {
+  display: none;
+}
+
+.modal__check-btn:checked + .modal__check::before {
+  background-position: -16px 0;
+}
+
+.modal__check {
+  display: flex;
+  /* padding-left: 2rem; */
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal__check::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(../images/checkbox.svg) no-repeat 0 50%;
+  background-position: 0 0;
+  margin-right: 0.6rem;
 }
 
 .madal_btn {
@@ -318,19 +329,110 @@ button {
   border-radius: 30px;
   color: #fff;
   box-shadow: 0 4px 9px 0 rgb(63 65 80 / 30%);
+  font-size: 1.6rem;
   transition: transform 0.3s;
   cursor: pointer;
 }
 
-.madal_btn:hover {
-  background-color: rgba(52, 33, 255, 0.8);
-  transform: translateY(-10px);
+
+.img_info {
+  display: block;
+  position: absolute;
+  bottom: -5rem;
+  left: 50%;
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+  transform: translateX(-50%);
+  color: rgba(0, 0, 0, 0.7);
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .game__reset:hover {
     background-color: rgba(255, 220, 33, 0.8);
     box-shadow: 0 4px 9px 0 rgb(63 65 80 / 30%);
-  }  
+  }
+  
+  .game_btn:hover {
+    background-color: #ffdc21;
+    background-position: 50% 40%;
+    box-shadow: 0 4px 9px 0 rgb(63 65 80 / 30%);
+  }
+  
+  .madal_btn:hover {
+    background-color: rgba(52, 33, 255, 0.8);
+    transform: translateY(-10px);
+  }
 
+  .close_btn:hover {
+    background-color: #ffdc21;
+  }
+  
+  .close_btn:hover em {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  
+  .close_btn:hover em::before,
+  .close_btn:hover em::after {
+    background-color: #000;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+
+  .none {
+    display: none;
+  }
+
+  .modal__wrap {
+    padding: 4rem 2rem;
+    padding-right: 4rem;
+  }
+
+  .modal__container { 
+    padding: 2rem;
+    height: 30vh;
+    overflow: auto;
+  }
+
+  .game {
+    min-height: auto;
+  }
+
+  .game__score {
+    margin: 2rem 0;
+    width: 70%;
+    height: 7rem;
+  }
+
+  .game__reset {
+    width: 25%;
+    height: 7rem;
+  }
+
+  .game__body {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(100px, 20vh));
+    gap: 2rem;
+  }
+
+  .game__body::after {
+    width: 80%;
+    height: 1px;
+  }
+
+  .game__btn-wrap {
+    margin-top: 2rem;
+  }
+
+  .game_btn {
+    width: 32.3333%;
+    /* width: 23.077vw; */
+    height: 23.077vw;
+  }
+
+  .img_info {
+    bottom: -3rem;
+    font-size: 1rem;
+  }
 }

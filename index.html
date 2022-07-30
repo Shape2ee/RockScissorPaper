@@ -25,11 +25,11 @@
         <div class="game__board">
           <ul class="game__score">
             <li>
-              <h2>My Point</h2>
+              <h2>My <span class="none">Point</span></h2>
               <p class="game__point game__point--my">0</p>
             </li>
             <li>
-              <h2>Your Point</h2>
+              <h2>Your <span class="none">Point</span></h2>
               <p class="game__point game__point--your">0</p>
             </li>
           </ul>
@@ -53,6 +53,7 @@
         <button class="game_btn game__rock"><span class="blind">바위</span></button>
         <button class="game_btn game__paper"><span class="blind">보</span></button>
       </div>
+      <a href="https://kr.freepik.com/vectors/people"  class="img_info">가위바위보 이미지는 pch.vector - kr.freepik.com가 제작하였습니다.</a>
     </section>
     <!-- 모달창 -->
     <article class="modal show">
@@ -77,8 +78,14 @@
               게임은 10승을 먼저 하는 사람의 승리입니다.
             </li>
           </ul>
-        </div>  
-        <div class="madal_btn">게임시작</div>
+          
+        </div>
+        <form action="#" class="modal__form" name="check">
+          <input type="checkbox" name="checkbox" id="checkbox" class="modal__check-btn">
+          <label class="modal__check" for="checkbox">하루동안 보지 않기</label>
+          <button class="madal_btn">게임시작</button>
+        </form>
+
       </div>
     </article>
     <!-- script -->
