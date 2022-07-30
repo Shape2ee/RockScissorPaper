@@ -114,15 +114,12 @@ button {
   border-radius: 20px;
   text-transform: uppercase;
   box-shadow: 0 4px 9px 0 rgb(63 65 80 / 16%);
-  /* transition: box-shadow 0.3s; */
 }
 
 .game__body {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(300px, 30vh);
-
+  display: flex;
+  justify-content: space-around;
 }
 
 .game__item {
@@ -131,6 +128,8 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 30vh;
+  min-height: 300px;
 }
 
 .game__body::after {
@@ -303,7 +302,6 @@ button {
 
 .modal__check {
   display: flex;
-  /* padding-left: 2rem; */
   font-size: 1.4rem;
   cursor: pointer;
 }
@@ -412,9 +410,7 @@ button {
   }
 
   .game__body {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, minmax(100px, 20vh));
-    gap: 2rem;
+    flex-direction: column-reverse;
   }
 
   .game__body::after {
@@ -422,14 +418,22 @@ button {
     height: 1px;
   }
 
+  .game__item {
+    height: 20vh;
+    min-height: 100px;
+  }
+
+  .game__item--my {
+    margin-top: 4rem;
+  }
+
   .game__btn-wrap {
     margin-top: 2rem;
   }
 
   .game_btn {
-    width: 32.3333%;
-    /* width: 23.077vw; */
-    height: 23.077vw;
+    width: 31.3333%;
+    height: 22.564vw;
   }
 
   .madal_btn {
@@ -437,7 +441,7 @@ button {
   }
 
   .img_info {
-    bottom: -3rem;
+    bottom: -2.5vh;
     font-size: 1rem;
   }
 }
