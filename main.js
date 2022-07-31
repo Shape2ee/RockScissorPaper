@@ -187,8 +187,6 @@ startBtn.addEventListener("click", (e) => {
   }
 })
 
-window.addEventListener("load", () => {
-  if(getCookie("close")) {
-    modal.classList.remove("show");
-  }
-})
+if(getCookie("close") === undefined) {
+  modal.classList.add("show");
+}
